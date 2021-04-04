@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-// import {SafeAreaView,} from 'react-native';
-import { StyleSheet, View, TextInput } from 'react-native';
+import { StyleSheet, View} from 'react-native';
 import SearchBar from '../components/SearchBar';
 
 const SearchScreen = () => {
