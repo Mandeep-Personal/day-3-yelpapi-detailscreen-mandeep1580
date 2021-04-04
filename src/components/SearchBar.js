@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity } from 'react-native';
 import {EvilIcons} from '@expo/vector-icons';
 
-const SearchBar = ({ term, onTermChange }) => {
+const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
     return (
     <View style={styles.background}>
         <View style={styles.searchText}>
@@ -13,7 +13,7 @@ const SearchBar = ({ term, onTermChange }) => {
             placeholder="Search"
             placeholderTextColor="#FFFFFF"
             onChangeText={newTerm => onTermChange(newTerm)}
-            // onSubmitEditing={() => onTermSubmit()}
+            onSubmitEditing={() => onTermSubmit()}
             />
             </View>
         </View>
