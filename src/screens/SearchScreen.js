@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { StyleSheet, View} from 'react-native';
 import SearchBar from '../components/SearchBar';
 import yelp from '../api/yelp';
 
 const SearchScreen = () => {
     const [term, setTerm] = useState('')
+    const [businesses, setBusinesses] = useState([]);
   
   //api call
   const searchAPI = async () => {
@@ -15,8 +16,14 @@ const SearchScreen = () => {
             location: 'vancouver'
           }
       });
-      console.log(response.data.businesses)
+      setBusinesses(response.data.businesses)
+      
     }
+
+    useEffect(() => {
+        searchAPI()
+    }, [])
+    console.log(businesses)
 
   return (
     <View>
