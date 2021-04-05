@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, View, Text, FlatList } from 'react-native';
+import PriceResultItem from './PriceResultItem';
 
 const PriceResultList = (props) => {
 
@@ -10,7 +11,7 @@ const PriceResultList = (props) => {
             data={props.results}
             keyExtractor={(business) => business.id}
             renderItem={({ item }) => { 
-                return <Text>{item.name}</Text>
+                return <PriceResultItem result={item}/>
             }}
             horizontal={true}
             />
