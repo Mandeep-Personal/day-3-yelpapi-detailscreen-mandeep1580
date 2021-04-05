@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, Text, FlatList } from 'react-native';
 
-const PriceResultList = ({}) => {
+const PriceResultList = ({results}) => {
 
     return(
         <View>
