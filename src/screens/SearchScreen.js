@@ -8,6 +8,11 @@ const SearchScreen = () => {
     const [term, setTerm] = useState('')
     const [businesses, setBusinesses] = useState([]);
   
+    const filterByPrice = (price) => {
+        return businesses.filter(business => {
+            return business.price === price
+        })
+    } 
   //api call
   const searchAPI = async () => {
       const response = await yelp.get('/search', {
@@ -32,7 +37,10 @@ const SearchScreen = () => {
       term={term}
       onTermChange={(newTerm) => setTerm(newTerm)} 
       onTermSubmit={() => searchAPI()}/>
-      <PriceResultList results = {businesses} />
+      <PriceResultList results = {filterByPrice('$')} title= "Budget Eats" />
+      <PriceResultList results = {filterByPrice('$$')} title= "Average Eats" />
+      <PriceResultList results = {filterByPrice('$$')} title= "Pricey Eats" />
+      <PriceResultList results = {filterByPrice('$$$$')} title= "Super Pricey Eats" />
   </View>
   );
 }
